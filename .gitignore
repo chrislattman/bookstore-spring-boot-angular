@@ -1,0 +1,23 @@
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Backend / Maven
+backend/target/
+backend/*.jar
+backend/.mvn/
+backend/*.log
+
+# Frontend / Angular / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/*.log
+npm-debug.log*
+
+# Docker / Database
+mysql_data/
