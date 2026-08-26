@@ -4,7 +4,7 @@ A standard, modern full-stack web application for browsing books, filtering by g
 
 ## 🚀 Tech Stack
 
-- **Backend:** Spring Boot (Java 17), Spring Data JPA, REST Controllers, Maven.
+- **Backend:** Spring Boot (Java 17), Spring Data JPA, REST Controllers, Gradle.
 - **Frontend:** Angular 17 (Standalone Components), Tailwind CSS, RxJS.
 - **Database:** MySQL 8.0 with volume persistence (`mysql_data`).
 - **Containerization:** Multi-stage Dockerfiles for frontend and backend orchestrated with Docker Compose.
@@ -18,8 +18,8 @@ A standard, modern full-stack web application for browsing books, filtering by g
 ├── docker-compose.yml          # Multi-container service configuration
 ├── init.sql                    # Initial MySQL database seed script
 ├── backend/                    # Spring Boot REST API Service
-│   ├── Dockerfile              # Multi-stage Docker build (Maven -> Eclipse Temurin JRE)
-│   ├── pom.xml
+│   ├── Dockerfile              # Multi-stage Docker build (Gradle -> Eclipse Temurin JRE)
+│   ├── build.gradle.kts
 │   └── src/                    # Spring Boot application source code
 └── frontend/                   # Angular Standalone Single Page Application
     ├── Dockerfile              # Multi-stage Docker build (Node -> Nginx)

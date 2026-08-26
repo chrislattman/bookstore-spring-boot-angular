@@ -1,5 +1,5 @@
-target/
-.mvn/
+.gradle/
+build/
 .git/
 .gitignore
 *.md

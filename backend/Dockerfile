@@ -1,15 +1,17 @@
-# Stage 1: Build JAR using Maven
-FROM maven:3.9-eclipse-temurin-17 AS builder
+# Stage 1: Build JAR using Gradle
+FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /app
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle.kts settings.gradle.kts ./
+RUN ./gradlew dependencies --no-daemon || true
 COPY src ./src
-RUN mvn package -DskipTests
+RUN ./gradlew bootJar --no-daemon -x test
 
 # Stage 2: Minimal runtime using Eclipse Temurin JRE 17
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/build/libs/*.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]

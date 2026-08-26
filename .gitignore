@@ -6,10 +6,10 @@ Thumbs.db
 *.swp
 *.swo
 
-# Backend / Maven
-backend/target/
+# Backend / Gradle
+backend/.gradle/
+backend/build/
 backend/*.jar
-backend/.mvn/
 backend/*.log
 
 # Frontend / Angular / Node
